@@ -14,49 +14,22 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/people": {
+    "/people/{id}": {
       "get": {
-        "tags": ["PEOPLE"],
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      },
-      "post": {
-        "tags": ["PEOPLE"],
+        "tags": ["Person"],
         "description": "",
         "parameters": [
           {
-            "name": "obj",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
-                },
-                "sex": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                }
-              }
-            }
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
-        "responses": {
-          "422": {
-            "description": "Unprocessable Entity"
-          }
-        }
-      }
-    },
-    "/people/{id}": {
+        "responses": {}
+      },
       "delete": {
-        "tags": ["PEOPLE"],
+        "tags": ["Person"],
         "description": "",
         "parameters": [
           {
@@ -69,7 +42,7 @@
         "responses": {}
       },
       "put": {
-        "tags": ["PEOPLE"],
+        "tags": ["Person"],
         "description": "",
         "parameters": [
           {
@@ -101,6 +74,46 @@
           }
         ],
         "responses": {}
+      }
+    },
+    "/people": {
+      "get": {
+        "tags": ["Person"],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "tags": ["Person"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "sex": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
       }
     }
   },

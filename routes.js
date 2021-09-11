@@ -3,6 +3,7 @@ const PersonController = require('./src/controllers/PersonController');
 
 const routes = Router();
 
+routes.get('/people/:id', PersonController.find);
 routes.get('/people', PersonController.list);
 routes.post('/people', PersonController.create);
 routes.delete('/people/:id', PersonController.delete);

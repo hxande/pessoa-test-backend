@@ -3,6 +3,24 @@ const Address = require('../models/Address');
 
 module.exports = {
 
+    async find(req, res) {
+        const { id } = req.params;
+
+        try {
+            const person = await Person.findByPk(id, {
+                include: [
+                    {
+                        model: Address,
+                        as: 'address'
+                    }
+                ]
+            });
+            res.json(person);
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
     async list(req, res) {
         try {
             const people = await Person.findAll({

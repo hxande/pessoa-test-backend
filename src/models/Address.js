@@ -13,7 +13,7 @@ const Address = database.define('address', {
         allowNull: false
     },
     cep: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     state: {
         type: Sequelize.STRING,
